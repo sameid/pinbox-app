@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PushPin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="lib/appjs/app.min.css">
+  <link rel="stylesheet" href="draft.css">
+  <link rel="stylesheet" href="lib/tagmanager/tagmanager.css">
+  <style>
+    /* TODO */
+  </style>
+</head>
+
+<body>
+  <div id="spinner" style="display:none;"></div>
+  <div class="app-page" data-page="splash-1">
+    <div class="app-topbar red">
+      <div class="app-title">Welcome to Pinbox</div>
+    </div>
+    <div class="app-content">
+      <div class="app-section quiet">
+        <img style="width:30%;height:30%display:inline;float:left;margin-right:5px;" src="http://png-4.findicons.com/files/icons/2799/flat_icons/256/push_pin.png" />
+        <h1>Liberate your <br>contact info.</h1> 
+        
+        <h2>Create a volatile contact pin, allowing you to opt-out whenever you want.<br> No email required.</h2>
+      </div>
+
+      <div class="app-section quiet"> 
+        <input id="newpin" class="app-input" type="text" placeholder="Your New Pin">
+        <input id="newpassword" class="app-input" type="password" placeholder="New Password">
+        <div id="create-pin" style="width:45%;display:inline-block" class="app-button blue">Create Pin!</div>
+        <div id="have-pin" style="margin-left:5px;width:40%;display:inline-block" class="app-button green" data-target="signin">Have a pin?</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="app-page" data-page="signin">
+    <div class="app-topbar red">
+      <div class="app-button left" data-back></div>
+      <div class="app-title">Sign In</div>
+    </div>
+    <div class="app-content">
+      <img class="center-img" src="http://png-4.findicons.com/files/icons/2799/flat_icons/256/push_pin.png" />
+
+      <div class="app-section quiet">
+        <input id="pin-box" class="app-input" type="text" placeholder="Pin">
+        <input id="password-box" class="app-input" type="password" placeholder="Password">
+        <div id="sign-in" class="app-button green ">Sign In</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-page" data-page="inbox">
+    <div class="app-topbar red">
+      <div id="menu"class="app-button app-menu right" >Sign Out</div>
+      <div class="app-title" id="pinbox-title">Pinbox</div>
+    </div>
+    <div class="app-content">
+      <ul class="pinbox"></ul>
+    </div>
+</div>
+
+<div class="app-page" data-page="splash-2">
+  <div class="app-topbar red">
+    <div class="app-title">Welcome to PushPin</div>
+  </div>
+  <div class="app-content">
+      <!-- <h2>Expire your pin when you want, and even create multiple pins for seperate groups. You can even subscribe to PushPin enabled services! </h2> -->
+    <div id="big-pin" style="text-align:center;margin-top:30px;"></div>
+    <div>
+      <img src="assets/man.png"class='display-pic' id='dp'  />
+      <input type="file" id="dp-upload" style="display:none;" accept="image/*"/>
+    </div>
+    <div class="app-section quiet" style="text-align:center;"><span >Tap on your display pic to change it</span></div>
+    <div class="app-section app-button blue" data-target="inbox">Continue</div>
+  </div>
+</div>
+
+<div class="app-page" data-page="thread">
+ <div class="app-topbar red">
+  <div class="app-button left" data-back>Back</div>
+  <div class="app-title" id="title-pin"></div>
+</div>
+<div class="app-content" >
+  <!-- <div class="app-section quiet"> -->
+  <ul id="thread-messages" style="overflow:auto;" >
+    <li class="message-spacer"></li>
+  </ul>
+  <!-- </div> -->
+
+  <div class="message-box">
+    <input style="height:40px;width:80%;display:inline-block;float:left"class="app-input" type="text" placeholder="Message" id='message-box'>
+    <div style="height:40px;width:20%;display:inline-block;float:right" class="app-button blue" id="send-message">Send</div>
+    <div style="clear:both;"></div>
+  </div>
+</div>
+</div>
+
+  <div class="app-page" data-page="send">
+    <div class="app-topbar red">
+  <div class="app-button left" data-back>Back</div>
+      <div class="app-title">Send a new message</div>
+    </div>
+    <div class="app-content">
+      <div class="app-section quiet"> 
+        <div id="remote" >
+            <input id="recipient-pins" class="app-input tm-input tm-input-large tm-input-success" type="text" placeholder="Add pins...">
+        </div>
+        <textarea id="new-message" class="app-input" type="text" placeholder="Message"></textarea>
+        <div id="send-new-message"  class="app-button blue" >Send</div>
+      </div>
+    </div>
+  </div>
+
+<script src="cordova.js"></script>
+
+
+<script src="lib/jquery.js"></script>
+<script src="lib/jquery.transit.min.js"></script>
+<script src="lib/jquery.form.js"></script>
+<script src="lib/fastclick.js"></script>
+<script src="lib/adapter/memory-adapter.js"></script>
+<script src="lib/appjs/app.min.js"></script>
+<script src="lib/spinjs/spin.min.js"></script>
+<script src="lib/moment.js"></script>
+<script src="lib/typeahead.bundle.min.js"></script>
+<script src="lib/tagmanager/tagmanager.js"></script>
+<script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+
+<script src="js/init.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/controllers/splash-1.js"></script>
+<script src="js/controllers/splash-2.js"></script>
+<script src="js/controllers/account.js"></script>
+<script src="js/controllers/thread.js"></script>
+<script src="js/controllers/inbox.js"></script>
+<script src="js/controllers/send.js"></script>
+
+
+<script>
+  if (document.userHasSession()){
+    var sock = new SockJS(document.config.sockjs);
+    sock.onopen = function() {
+      console.log('Socket connection opened to server!');
+      sock.send('pin:'+document.currentUser().hash);
+    };
+    sock.onmessage = function(e) {
+      var obj = JSON.parse(e.data);
+      if (obj)sock.handleMessage(obj);
+    };
+    sock.onclose = function() {
+      console.log('close');
+    };
+
+    App.load('inbox', document.currentUser());
+  }
+
+  else {
+    App.load('splash-1');
+  }
+</script>
+</body>
+</html>

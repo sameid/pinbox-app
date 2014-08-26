@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PushPin - Liberate yourself.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="lib/appjs/app.min.css">
+    <link rel="stylesheet" href="lib/topcoat/css/topcoat-mobile-dark.min.css"> 
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:300&effect=shadow-multiple' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+
+    <div id="spinner" class="spinner__"></div>
+    <div class="app-page" data-page="splash-1">
+      <div class="topcoat-navigation-bar">
+        <div class="topcoat-navigation-bar__item center full">
+          <h1 class="topcoat-navigation-bar__title">Welcome to PushPin.</h1>
+        </div>
+      </div>
+      <h1 style="background-color:#4183D7;padding-top:10px;padding-bottom:10px">Liberate your contact info.</h1>
+      <h3 style="background-color:#87D37C;padding-top:10px;padding-bottom:10px;margin-top:-20px"> PushPin allows you to create a volatile contact pin, allowing you to opt-out whenever you want.</h3>
+      <h1 style="display:inline-block;margin-top:0px;margin-right:-8px">@</h1>
+      <input id="newpin" style="width:70%;"type="text" class="topcoat-text-input" pattern="^[A-Za-z0-9_]{2,32}$" placeholder="YourNewPin" >
+      <h1 style="display:inline-block;margin-top:5px;margin-right:-5px">    
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 24 24" height="24px" id="Layer_1" version="1.1" viewBox="0 0 24 24" width="24px" xml:space="preserve"><path clip-rule="evenodd" d="M20.002,24.001H4.014c-1.104,0-1.998-0.896-1.998-2.001V11.994  c0-1.105,0.895-2.002,1.998-2.002h0.999V6.991c0-3.868,3.132-7.004,6.995-7.004s6.995,3.136,6.995,7.004v3.001h0.999  c1.104,0,1.998,0.896,1.998,2.002V22C22,23.104,21.105,24.001,20.002,24.001z M16.005,6.991c0-2.21-1.79-4.002-3.997-4.002  S8.011,4.781,8.011,6.991v3.001h7.994V6.991z" fill-rule="evenodd" style="fill:rgb(255,255,255);"/></svg>
+      </h1>
+       <input id="newpassword" style="width:70%;"type="password" class="topcoat-text-input " pattern="^.{6,32}$"placeholder="Password">
+      
+      <div id="alert" class="alert" style="display:none;"></div>
+      <button id="create-pin" class="topcoat-button--cta clean" >Create!</button>
+      <button id="have-pin" class="topcoat-button clean" style="margin-left:-10px;">Have a pin?</button>
+
+    </div>
+
+    <div class="app-page" data-page="sign-in">
+      <div id="sign-in-back" class="topcoat-navigation-bar">
+        <div  style="position:absolute;float:left;padding-top:5px;padding-right:15px;" class="topcoat-navigation-bar__item">
+          <svg  version="1.1" baseProfile="tiny" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+          x="0px" y="0px" width="22px" height="22px" viewBox="0 0 42 42" xml:space="preserve">
+          <polygon fill-rule="evenodd" fill="#FFFFFF" points="31,38.32 13.391,21 31,3.68 28.279,1 8,21.01 28.279,41 "/>
+          </svg>
+        </div>
+
+        <div class="topcoat-navigation-bar__item center full">
+          <h1 class="topcoat-navigation-bar__title">PushPin</h1>
+        </div>
+      </div>
+      <h1 style="background-color:#4183D7;padding-top:10px;padding-bottom:10px">Sign In to your PushPin Account.</h1>
+      <h3 style="background-color:#87D37C;padding-top:10px;padding-bottom:10px;margin-top:-20px"> Why the hell not?</h3>
+      <h1 style="display:inline-block;margin-top:0px;margin-right:-8px">@</h1>
+      <input id="pin-box" style="width:70%;"type="text" class="topcoat-text-input" pattern="^[A-Za-z0-9_]{2,32}$" placeholder="YourPin" >
+      <h1 style="display:inline-block;margin-top:5px;margin-right:-5px">    
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 24 24" height="24px" id="Layer_1" version="1.1" viewBox="0 0 24 24" width="24px" xml:space="preserve"><path clip-rule="evenodd" d="M20.002,24.001H4.014c-1.104,0-1.998-0.896-1.998-2.001V11.994  c0-1.105,0.895-2.002,1.998-2.002h0.999V6.991c0-3.868,3.132-7.004,6.995-7.004s6.995,3.136,6.995,7.004v3.001h0.999  c1.104,0,1.998,0.896,1.998,2.002V22C22,23.104,21.105,24.001,20.002,24.001z M16.005,6.991c0-2.21-1.79-4.002-3.997-4.002  S8.011,4.781,8.011,6.991v3.001h7.994V6.991z" fill-rule="evenodd" style="fill:rgb(255,255,255);"/></svg>
+      </h1>
+       <input id="password-box" style="width:70%;"type="password" class="topcoat-text-input " pattern="^.{6,32}$"placeholder="Password">
+      
+      <div id="alert" class="alert" style="display:none;"></div>
+      <button id="sign-in" class="topcoat-button--cta clean" >Sign In!</button>
+
+    </div>
+
+    <div class="app-page " data-page="splash-2">
+     <div class="topcoat-navigation-bar">
+        <div class="topcoat-navigation-bar__item center full">
+          <h1 class="topcoat-navigation-bar__title">Get connected...</h1>
+        </div>
+      </div>
+      <h1 style="background-color:#E67E22;padding-top:10px;padding-bottom:10px">Share your pin with others...</h1>
+      <h3 style="background-color:#8E44AD;padding-top:10px;padding-bottom:10px;margin-top:-20px"> Expire your pin when you want, and even create multiple pins for seperate groups. You can even subscribe to PushPin enabled services! 
+      </h3>
+        <button id="liberate-me" class="topcoat-button--large--cta clean" >Liberate me!</button>
+    </div>
+
+    <div class="app-page" data-page="inbox">
+     <div class="topcoat-navigation-bar">
+
+
+        <div class="topcoat-navigation-bar__item center full">
+          <h1 class="topcoat-navigation-bar__title">Inbox</h1>
+        </div>
+
+        <div  id="sign-out-button" style="position:absolute;float:right;right:10px;" class="topcoat-navigation-bar__item">
+            Sign Out
+        </div>
+      </div>
+
+      <div class="topcoat-list scroller message-inbox">
+      <h3 class="topcoat-list__header">New Notifications</h3>
+        <ul class="topcoat-list__container">
+          <li class="topcoat-list__item thread-item" id="some-hash">
+            <div class="profile"><img src="http://api.randomuser.me/portraits/lego/1.jpg" /></div>
+            <div class="content">
+              <div class="content-meta">
+                <div class="content-meta-left">@somepin</div>
+                <div class="content-meta-right topcoat-notification">1:34 PM</div>
+                <div style="clear: both;"></div>
+              </div>
+              <div class="content-message">Yo grab me some cookies...</div>
+            </div>
+          </li>
+          <li class="topcoat-list__item">
+            <div class="profile"><img src="http://api.randomuser.me/portraits/lego/2.jpg" /></div>
+            <div class="content">
+              <div class="content-meta">
+                <div class="content-meta-left">@friend1</div>
+                <div class="content-meta-right topcoat-notification">10:21 AM</div>
+                <div style="clear: both;"></div>
+              </div>
+              <div class="content-message">Thanks</div>
+            </div>
+          </li>
+          <li class="topcoat-list__item">
+            <div class="profile"><img src="http://api.randomuser.me/portraits/lego/3.jpg" /></div>
+            <div class="content">
+              <div class="content-meta">
+                <div class="content-meta-left">@friend2</div>
+                <div class="content-meta-right topcoat-notification">Yesterday</div>
+                <div style="clear: both;"></div>
+              </div>
+              <div class="content-message">Can you please get some cookies...</div>
+            </div>
+          </li>
+          <li class="topcoat-list__item">
+            <div class="profile"><img src="http://api.randomuser.me/portraits/lego/1.jpg" /></div>
+            <div class="content">
+              <div class="content-meta">
+                <div class="content-meta-left">@somepin</div>
+                <div class="content-meta-right topcoat-notification">1:34 PM</div>
+                <div style="clear: both;"></div>
+              </div>
+              <div class="content-message">Yo grab me some cookies...</div>
+            </div>
+          </li>
+          <li class="topcoat-list__item">
+            <div class="profile"><img src="http://api.randomuser.me/portraits/lego/2.jpg" /></div>
+            <div class="content">
+              <div class="content-meta">
+                <div class="content-meta-left">@friend1</div>
+                <div class="content-meta-right topcoat-notification">10:21 AM</div>
+                <div style="clear: both;"></div>
+              </div>
+              <div class="content-message">Thanks</div>
+            </div>
+          </li>
+          <li class="topcoat-list__item">
+            <div class="profile"><img src="http://api.randomuser.me/portraits/lego/3.jpg" /></div>
+            <div class="content">
+              <div class="content-meta">
+                <div class="content-meta-left">@friend2</div>
+                <div class="content-meta-right topcoat-notification">Yesterday</div>
+                <div style="clear: both;"></div>
+              </div>
+              <div class="content-message">Can you please get some cookies...</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    <footer>
+      <div class="footer-inbox"><img class="footer-img selected" src="assets/inbox.png" /></div>
+      <div class="footer-send"><img class="footer-img" src="assets/send.png" /></div>
+      <div class="footer-pin"><img class="footer-img" src="assets/pushpin.png" /></div>
+    </footer>
+
+    </div>
+
+    <div class="app-page" data-page="send">
+     <div class="topcoat-navigation-bar">
+        <div class="topcoat-navigation-bar__item center full">
+          <h1 class="topcoat-navigation-bar__title">COMPOSE...</h1>
+        </div>
+      </div>
+      <br>
+      <div><h1 style="display:inline-block;">@</h1><input id="recipient-pin" style="width:70%;"type="text" class="topcoat-text-input--large " value="" placeholder="recipient">
+      <textarea id="message-content" class="topcoat-text-input clean" style="width:90%;" placeholder="Message"></textarea>
+      <br>
+       <button id="send-message" class="topcoat-button--cta clean" >Send</button>
+       <button id="cancel-send" class="topcoat-button clean" style="margin-left:-10px;">Cancel</button>
+     
+      </div>
+       
+    </div>
+
+    <div class="app-page" data-page="thread">
+     <div id="thread-back" class="topcoat-navigation-bar">
+        <div  style="position:absolute;float:left;padding-top:5px;padding-right:15px;" class="topcoat-navigation-bar__item">
+          <svg  version="1.1" baseProfile="tiny" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+          x="0px" y="0px" width="22px" height="22px" viewBox="0 0 42 42" xml:space="preserve">
+          <polygon fill-rule="evenodd" fill="#FFFFFF" points="31,38.32 13.391,21 31,3.68 28.279,1 8,21.01 28.279,41 "/>
+          </svg>
+        </div>
+        <div class="topcoat-navigation-bar__item center full" >
+          <h1 class="topcoat-navigation-bar__title">@somepin</h1>
+        </div>
+      </div>
+      <div class="scroller">
+      <ul id="thread-messages">
+        <li class="message-left">
+            Hey Sallam bro hows it going? 
+            Nothing much just chilling yo... How bout your self? blah blah blah blah
+        </li>
+        <li class="message-right">
+            Nothing much just chilling yo... How bout your self? blah blah blah blah
+        </li>
+        <li class="message-left">
+          Cool, down to chill?
+        </li>
+        <li class="message-left">
+            Hey Sallam bro hows it going? 
+            Nothing much just chilling yo... How bout your self? blah blah blah blah
+        </li>
+        <li class="message-right">
+            Nothing much just chilling yo... How bout your self? blah blah blah blah
+        </li>
+        <li class="message-left">
+          Cool, down to chill?
+        </li>
+        <li class="message-left">
+            Hey Sallam bro hows it going? 
+            Nothing much just chilling yo... How bout your self? blah blah blah blah
+        </li>
+        <li class="message-right">
+            Nothing much just chilling yo... How bout your self? blah blah blah blah
+        </li>
+        <li class="message-left">
+          Cool, down to chill?
+        </li>
+        </ul>
+        </div>
+      </ul>
+
+      <div id="message-box">
+        
+      </div>
+
+    </div>
+    <script>
+      document.host = "http://localhost:8080/api";
+      // document.host = "http://192.168.1.117:8080/api"
+    </script>
+    <script src="lib/spinjs/spin.min.js"></script>
+    <script src="lib/appjs/zepto.js"></script>
+    <script src="lib/appjs/app.min.js"></script>
+    <script src="lib/adapter/memory-adapter.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/controllers/splash-1.js"></script>
+    <script src="js/controllers/sign-in.js"></script>
+    <script src="js/controllers/inbox.js"></script>
+    <script src="js/controllers/send.js"></script>
+    
+    <script>
+
+
+      App.controller('splash-2', function (page) {
+        $(page).find("#liberate-me").click(function(){
+          App.load('inbox');
+        });
+      });
+
+
+
+      App.controller('thread', function(page){
+        $(page).find("#thread-back").click(function(){
+          App.back();
+        });
+      });
+
+      // try {
+      //   // App.restore();
+      // } catch (err) {
+
+        if (document.userHasSession()){
+          App.load('inbox', document.currentUser().hash);
+        }
+        else {
+          App.load('splash-1');
+        }
+      // }
+    </script>
+  </body>
+</html>
